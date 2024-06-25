@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Xml;
+using System.Xml.Linq;
 using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 /// <summary>
 /// ref→[Example of a CLR Scalar-Valued Function](https://learn.microsoft.com/en-us/sql/relational-databases/clr-integration-database-objects-user-defined-functions/clr-scalar-valued-functions?view=sql-server-ver16#example-of-a-clr-scalar-valued-function)
@@ -17,13 +18,17 @@ public class ScalarValuedFunction
   [SqlFunction(DataAccess = DataAccessKind.Read)]
   public static string Xml2Json(string xml)
   {
-    return $"Xml2Json {DateTime.Now:HH:mm:ss}";
+    XmlDocument doc = new XmlDocument();
+    doc.LoadXml(xml);
+    string json = JsonConvert.SerializeXmlNode(doc);
+    return json;
   }
 
   [SqlFunction(DataAccess = DataAccessKind.Read)]
   public static string Json2Xml(string json)
   {
-    return $"Json2Xml {DateTime.Now:HH:mm:ss}";
+    XNode node = JsonConvert.DeserializeXNode(json, "Root");
+    string xml = node.ToString();
+    return xml;
   }
-
 }
