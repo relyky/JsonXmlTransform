@@ -13,4 +13,17 @@ public class ScalarValuedFunction
   {
     return $"哈囉 at {DateTime.Now:HH:mm:ss}";
   }
+
+  [SqlFunction(DataAccess = DataAccessKind.Read)]
+  public static string Xml2Json(string xml)
+  {
+    return $"Xml2Json {DateTime.Now:HH:mm:ss}";
+  }
+
+  [SqlFunction(DataAccess = DataAccessKind.Read)]
+  public static string Json2Xml(string json)
+  {
+    return $"Json2Xml {DateTime.Now:HH:mm:ss}";
+  }
+
 }

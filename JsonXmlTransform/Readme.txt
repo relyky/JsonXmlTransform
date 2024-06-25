@@ -18,7 +18,7 @@ GO
 -- 註冊CLR.dll模組
 CREATE ASSEMBLY JsonXmlTransform 
   AUTHORIZATION dbo
-  FROM 'D:\GitHubRepos\JsonXmlTransform\bin\Release\JsonXmlTransform.dll' 
+  FROM 'D:\GitHubRepos\JsonXmlTransform\JsonXmlTransform\bin\Release\JsonXmlTransform.dll' 
   WITH PERMISSION_SET = UNSAFE; --(UNSAFE則一定要開啟trustworthy)
 GO
 
@@ -31,6 +31,6 @@ EXTERNAL NAME JsonXmlTransform.ScalarValuedFunction.SayHello
 GO
 
 -- 測試完後移除註冊
-DROP FUNCTION [dbo].[SayHello]
+DROP FUNCTION [dbo].[fnSayHello]
 DROP ASSEMBLY [JsonXmlTransform]
 GO

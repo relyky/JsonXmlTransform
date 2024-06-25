@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "JsonXmlTransform", "JsonXmlTransform.sqlproj", "{5A62253A-C1D7-4F33-A94D-0C94BD0D1CA3}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "JsonXmlTransform", "JsonXmlTransform\JsonXmlTransform.sqlproj", "{5A62253A-C1D7-4F33-A94D-0C94BD0D1CA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1\UnitTestProject1.csproj", "{7805F830-1796-481C-9C87-66B43806CC23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{5A62253A-C1D7-4F33-A94D-0C94BD0D1CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A62253A-C1D7-4F33-A94D-0C94BD0D1CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A62253A-C1D7-4F33-A94D-0C94BD0D1CA3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7805F830-1796-481C-9C87-66B43806CC23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7805F830-1796-481C-9C87-66B43806CC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7805F830-1796-481C-9C87-66B43806CC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7805F830-1796-481C-9C87-66B43806CC23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
