@@ -30,7 +30,25 @@ EXTERNAL NAME JsonXmlTransform.ScalarValuedFunction.SayHello
 --- 注意：命名空間的名稱取用順序為[ModuleName].[NameSpace].[ClassName].[MethodName] 
 GO
 
+-- 註冊 Function
+CREATE FUNCTION fnXml2Json(@xml NVARCHAR(max))
+RETURNS NVARCHAR(max)
+AS  
+EXTERNAL NAME JsonXmlTransform.ScalarValuedFunction.Xml2Json 
+--- 注意：命名空間的名稱取用順序為[ModuleName].[NameSpace].[ClassName].[MethodName] 
+GO
+
+-- 註冊 Function
+CREATE FUNCTION fnJson2Xml(@json NVARCHAR(max))
+RETURNS NVARCHAR(max)
+AS  
+EXTERNAL NAME JsonXmlTransform.ScalarValuedFunction.Json2Xml 
+--- 注意：命名空間的名稱取用順序為[ModuleName].[NameSpace].[ClassName].[MethodName] 
+GO
+
 -- 測試完後移除註冊
 DROP FUNCTION [dbo].[fnSayHello]
+DROP FUNCTION [dbo].[fnXml2Json]
+DROP FUNCTION [dbo].[fnJson2Xml]
 DROP ASSEMBLY [JsonXmlTransform]
 GO
