@@ -47,5 +47,26 @@ namespace UnitTestProject1
       string xml = ScalarValuedFunction.Json2Xml(json);
       Assert.AreEqual(expected_xml, xml);
     }
+
+    [TestMethod]
+    public void Test_Xml2Json()
+    {
+      string xml = @"<?xml version='1.0' standalone='no'?>
+<root>
+  <person id='1'>
+  <name>Alan</name>
+  <url>http://www.google.com</url>
+  </person>
+  <person id='2'>
+  <name>Louis</name>
+  <url>http://www.yahoo.com</url>
+  </person>
+</root>";
+
+      string expected_json = @"{""?xml"":{""@version"":""1.0"",""@standalone"":""no""},""root"":{""person"":[{""@id"":""1"",""name"":""Alan"",""url"":""http://www.google.com""},{""@id"":""2"",""name"":""Louis"",""url"":""http://www.yahoo.com""}]}}";
+
+      string json = ScalarValuedFunction.Xml2Json(xml);
+      Assert.AreEqual(expected_json, json);
+    }
   }
 }
