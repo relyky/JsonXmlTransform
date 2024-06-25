@@ -15,19 +15,27 @@ public class ScalarValuedFunction
     return $"哈囉 at {DateTime.Now:HH:mm:ss}";
   }
 
+  //[SqlFunction(DataAccess = DataAccessKind.Read)]
+  //public static string Xml2Json_old(string xml)
+  //{
+  //  XmlDocument doc = new XmlDocument();
+  //  doc.LoadXml(xml);
+  //  string json = JsonConvert.SerializeXmlNode(doc); // 不會把 root 消除。
+  //  return json;
+  //}
+
   [SqlFunction(DataAccess = DataAccessKind.Read)]
   public static string Xml2Json(string xml)
   {
-    XmlDocument doc = new XmlDocument();
-    doc.LoadXml(xml);
-    string json = JsonConvert.SerializeXmlNode(doc);
+    XNode node = XElement.Parse(xml);
+    string json = JsonConvert.SerializeXNode(node, Newtonsoft.Json.Formatting.Indented, true); // 把 "root" 消除。
     return json;
   }
 
   [SqlFunction(DataAccess = DataAccessKind.Read)]
   public static string Json2Xml(string json)
   {
-    XNode node = JsonConvert.DeserializeXNode(json, "Root");
+    XNode node = JsonConvert.DeserializeXNode(json, "root"); // 將會在 xml 加一層 "root"。
     string xml = node.ToString();
     return xml;
   }
